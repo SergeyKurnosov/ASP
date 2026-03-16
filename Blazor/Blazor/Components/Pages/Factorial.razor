@@ -1,7 +1,7 @@
 ﻿@page "/factorial"
 @rendermode InteractiveServer
 
-@* //using System.Numeric; *@
+@using System.Numerics;
 
 <h3>Factorial</h3>
 
@@ -13,30 +13,13 @@
 
 
 </div>
-<div>
+<ol>
 	@{
-		foreach (long i in results)
+		foreach (BigInteger i in results)
 		{
 			<li>@i</li>
 		}
 	}
-</div>
-@code {
-	int number;
-	long factorial = 1;
-	List<long> results = new List<long>();
-	void setNumber(int number)
-	{
-		this.number = number;
-	}
-	void Calculate()
-	{
-		factorial = 1;
-		results = new List<long>();
-		for (int i = 1; i <= number; i++)
-		{
-			factorial *= i;
-			results.Add(factorial);
-		}
-	}
-}
+</ol>
+
+
