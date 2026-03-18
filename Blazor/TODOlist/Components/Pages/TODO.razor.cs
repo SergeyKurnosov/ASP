@@ -6,7 +6,7 @@ namespace TODOlist.Components.Pages
 	{
 		string task = "Hello";
 
-		HashSet<TODOitem> todos = [];
+		List<TODOitem> todos = [];
 
 		void AddTask()
 		{
