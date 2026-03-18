@@ -1,0 +1,23 @@
+﻿@page "/fib"
+@rendermode InteractiveServer
+
+@using System.Numerics;
+
+<h3>Fibonacci</h3>
+
+<PageTitle>Fibonacci</PageTitle>
+
+<div class="fib">
+	<input type="number" min="2" @bind="number" @bind:after="Calculate" />
+
+</div>
+<ul>
+	@{
+		foreach (BigInteger i in results)
+		{
+			<li>@i</li>
+		}
+	}
+</ul>
+
+

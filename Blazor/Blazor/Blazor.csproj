@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\icons\exponent_icon_138629.ico" />
+    <None Include="wwwroot\icons\exponent_icon_138629.png" />
+  </ItemGroup>
+
 </Project>
