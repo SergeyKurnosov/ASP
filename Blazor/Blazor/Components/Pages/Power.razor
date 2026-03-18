@@ -9,7 +9,7 @@
 
 <div class="power">
 	<input type="number" min="1" @bind="number" @bind:after="Calculate" />
-	<input type="number" min="-1" @bind="exponent" @bind:after="Calculate" />
+	<input type="number" min="0" @bind="exponent" @bind:after="Calculate" />
 	<div id="power">@result</div>
 </div>
 
