@@ -1,0 +1,37 @@
+﻿@page "/dec_hex"
+@rendermode InteractiveServer
+@implements IHandleEvent
+
+<PageTitle>Dec_Hex:</PageTitle>
+
+<h3>Dec_Hex</h3>
+
+<!-- From Uiverse.io by andrew-demchenk0 -->
+<div class="wrapper">
+    <div class="card-switch">
+        <label class="switch">
+            <input type="checkbox" class="toggle">
+            <span class="slider"></span>
+            <span class="card-side"></span>
+            <div class="flip-card__inner">
+                <div class="flip-card__front">
+                    <div class="title">Dec to Hex</div>
+                    <form class="flip-card__form" action="" @onsubmit="DecToHex">
+                        <input class="flip-card__input" placeholder="decimal" type="number" @bind=dec>
+                        <input class="flip-card__input" placeholder="hexadecimal" type="text" readonly @bind=hex>
+                        <button type="submit" class="flip-card__btn" >Let`s go!</button>
+                    </form>
+                </div>
+                <div class="flip-card__back">
+                    <div class="title">Hex to Dec</div>
+                    <form class="flip-card__form" action="" @onsubmit="HexToDec">
+                        <input class="flip-card__input" placeholder="hexadecimal" type="text" @bind=hex>
+                        <input class="flip-card__input" placeholder="decimal" type="number" readonly @bind=dec>
+                        <button type="submit" class="flip-card__btn">Let`s go!</button>
+                    </form>
+                </div>
+            </div>
+        </label>
+    </div>
+</div>
+

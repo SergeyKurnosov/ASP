@@ -1,0 +1,37 @@
+﻿@page "/dec_bin"
+@rendermode InteractiveServer
+@implements IHandleEvent
+
+<PageTitle>Dec_Bin:</PageTitle>
+
+<h3>Dec_Bin</h3>
+
+<!-- From Uiverse.io by andrew-demchenk0 -->
+<div class="wrapper">
+    <div class="card-switch">
+        <label class="switch">
+            <input type="checkbox" class="toggle">
+            <span class="slider"></span>
+            <span class="card-side"></span>
+            <div class="flip-card__inner">
+                <div class="flip-card__front">
+                    <div class="title">Dec to Bin</div>
+                    <form class="flip-card__form" action="" @onsubmit="DecToBin">
+                        <input class="flip-card__input" placeholder="decimal" type="number" @bind=dec>
+                        <input class="flip-card__input" placeholder="binary" type="text" readonly @bind=bin >
+                        <button type="submit" class="flip-card__btn" >Let`s go!</button>
+                    </form>
+                </div>
+                <div class="flip-card__back">
+                    <div class="title">Bin to Dec</div>
+                    <form class="flip-card__form" action="" @onsubmit="BinToDec">
+                        <input class="flip-card__input" placeholder="binary" type="text" @bind=bin>
+                        <input class="flip-card__input" placeholder="decimal" type="number" readonly @bind=dec>
+                        <button type="submit" class="flip-card__btn">Let`s go!</button>
+                    </form>
+                </div>
+            </div>
+        </label>
+    </div>
+</div>
+
