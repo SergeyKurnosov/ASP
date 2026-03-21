@@ -11,4 +11,8 @@
     <None Include="wwwroot\icons\exponent_icon_138629.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\svg\" />
+  </ItemGroup>
+
 </Project>
