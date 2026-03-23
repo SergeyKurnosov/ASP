@@ -35,6 +35,18 @@
                 <InputText id="URL" @bind-Value="Movie.URL" class="form-control" /> 
                 <ValidationMessage For="() => Movie.URL" class="text-danger" /> 
             </div>    
+
+            <div class="mb-3">
+                <label for="Brief" class="form-label">Brief:</label> 
+                <InputText id="Brief" @bind-Value="Movie.Brief" class="form-control" /> 
+                <ValidationMessage For="() => Movie.Brief" class="text-danger" /> 
+            </div>    
+
+            <div class="mb-3">
+                <label for="ImgURL" class="form-label">ImgURL:</label>
+                <InputText id="ImgURL" @bind-Value="Movie.ImgURL" class="form-control" />
+                <ValidationMessage For="() => Movie.ImgURL" class="text-danger" />
+            </div>    
             
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
