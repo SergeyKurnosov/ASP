@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "Converter\Conv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies", "Movies\Movies.csproj", "{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy", "D:\ProjectHW\Academy\Academy.csproj", "{7A84D6E4-115C-4EB8-9BC0-E6DD073C0EF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy", "Academy\Academy.csproj", "{55F1CB25-A562-4798-9723-B7BA62B78A6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A84D6E4-115C-4EB8-9BC0-E6DD073C0EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A84D6E4-115C-4EB8-9BC0-E6DD073C0EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A84D6E4-115C-4EB8-9BC0-E6DD073C0EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A84D6E4-115C-4EB8-9BC0-E6DD073C0EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F1CB25-A562-4798-9723-B7BA62B78A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F1CB25-A562-4798-9723-B7BA62B78A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F1CB25-A562-4798-9723-B7BA62B78A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F1CB25-A562-4798-9723-B7BA62B78A6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
