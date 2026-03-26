@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Converter", "Converter\Conv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies", "Movies\Movies.csproj", "{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Academy", "D:\ProjectHW\Academy_MVC\MVC_Academy\MVC_Academy.csproj", "{80168BAD-1F96-4AC7-9633-BC5C1214D1C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Academy", "Academy_MVC\MVC_Academy\MVC_Academy.csproj", "{72FC9036-33C7-44E2-B9EA-778349412BA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F40BA1D-C859-40FC-9EA3-77A0F87DF136}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80168BAD-1F96-4AC7-9633-BC5C1214D1C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80168BAD-1F96-4AC7-9633-BC5C1214D1C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80168BAD-1F96-4AC7-9633-BC5C1214D1C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80168BAD-1F96-4AC7-9633-BC5C1214D1C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72FC9036-33C7-44E2-B9EA-778349412BA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FC9036-33C7-44E2-B9EA-778349412BA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FC9036-33C7-44E2-B9EA-778349412BA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FC9036-33C7-44E2-B9EA-778349412BA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
