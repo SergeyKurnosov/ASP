@@ -3,6 +3,7 @@
 @using Academy.Models
 @inject IDbContextFactory<Academy.Data.AcademyContext> DbFactory
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
 <PageTitle>Create</PageTitle>
 
@@ -43,8 +44,10 @@
     int ID
     {
         get => Direction.direction_id;
-        set => Direction.direction_id = (byte)(id = value);
+        set =>
+        Direction.direction_id = (byte)(id = value);
     }
+
 
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddDirection()
