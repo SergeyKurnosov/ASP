@@ -1,4 +1,5 @@
 ﻿@page "/directions/create"
+@using Microsoft.Data.SqlClient
 @using Microsoft.EntityFrameworkCore
 @using Academy.Models
 @inject IDbContextFactory<Academy.Data.AcademyContext> DbFactory
@@ -26,7 +27,7 @@
 				<InputText id="direction_name" @bind-Value="Direction.direction_name" class="form-control" />
 				<ValidationMessage For="() => Direction.direction_name" class="text-danger" />
 			</div>
-
+			<div class="form-label" style="visibility:@hidden">this ID/name already exists</div>
 			<button type="submit" class="btn btn-primary">Create</button>
 		</EditForm>
 	</div>
@@ -42,7 +43,6 @@
 	protected override void OnInitialized()
 	{
 
-
 		using (Academy.Data.AcademyContext context = DbFactory.CreateDbContext())
 		{
 			ID = context.Directions.Max(d => d.direction_id) + 1;
@@ -50,7 +50,7 @@
 	}
 
 
-
+	string hidden = "hidden";
 	int id;
 	int ID
 	{
@@ -63,10 +63,22 @@
 	// To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
 	private async Task AddDirection()
 	{
-		using var context = DbFactory.CreateDbContext();
-		if (context.Directions.Contains(Direction)) return;
-		context.Directions.Add(Direction);
-		await context.SaveChangesAsync();
-		NavigationManager.NavigateTo("/directions");
+
+		try
+		{
+
+			using var context = DbFactory.CreateDbContext();
+			context.Directions.Add(Direction);
+			await context.SaveChangesAsync();
+			NavigationManager.NavigateTo("/directions");
+		}
+		catch (Exception ex)
+		{
+			//	NavigationManager.NavigateTo("/directions");	
+			hidden = "visible";
+		}
+
+
+
 	}
 }
