@@ -1,0 +1,84 @@
+﻿@page "/groups"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Academy.Models
+@using Academy.Data
+@implements IAsyncDisposable
+@inject IDbContextFactory<Academy.Data.AcademyContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="groups/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="Groups">
+    <PropertyColumn Property="group => group.group_name" />
+    <PropertyColumn Property="group => group.Direction.direction_name" />
+    <PropertyColumn Title="learning_days" Property="group => DecimalToBinary(group.learning_days)" />
+    <PropertyColumn Property="group => group.start_time" />
+
+    <TemplateColumn Context="group">
+        <a href="@($"groups/edit?group_id={group.group_id}")">Edit</a> |
+        <a href="@($"groups/details?group_id={group.group_id}")">Details</a> 
+        @* <a href="@($"groups/delete?group_id={group.group_id}")">Delete</a> *@
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private AcademyContext context = default!;
+    IQueryable<Group> Groups;// = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+        Groups = context.Groups.Include(g => g.Direction);
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
+
+    public string DecimalToBinary(int num)
+    {
+        string result = "";
+        int day = 1, degree = 1;
+
+        while(day <= 7)
+        {
+            if((num & degree) != 0)
+            {
+                result += NameDayForNumber(day);
+            }
+            day += 1;
+            degree *= 2;
+        }
+        return result;
+    }
+
+
+    public string NameDayForNumber(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                return "Пн_";
+            case 2:
+                return "Вт_";
+            case 3:
+                return "Ср_";
+            case 4:
+                return "Чт_";
+            case 5:
+                return "Пт_";
+            case 6:
+                return "Сб_";
+            case 7:
+                return "Вс_";
+            default:
+                return "Error";
+        }
+    }
+
+}
