@@ -42,4 +42,17 @@
 		}
 		Group.learning_days = mask;
 	}
+	void Exstract()
+	{
+		for(int i=0; i < 7; i++)
+		{
+			if ((Group.learning_days>>i & i) != 0) 
+				days[i] = true;
+		}
+	}
+	protected override void OnInitialized()
+	{
+		// base.OnInitialized();
+		Exstract();
+	}
 }
