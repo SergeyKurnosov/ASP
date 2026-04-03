@@ -3,6 +3,7 @@
 @using Academy2.Components.Model
 @inject IDbContextFactory<Academy2.Data.Academy2Context> DbFactory
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
 <PageTitle>Create</PageTitle>
 
@@ -47,12 +48,14 @@
                 <InputNumber id="direction" @bind-Value="Group.direction" class="form-control" aria-required="true"/> 
                 <ValidationMessage For="() => Group.direction" class="text-danger" /> 
             </div>  *@  
-			<Weekdays/>
-            <div class="mb-3">
+
+			<Weekdays @bind-Value="Group.learning_days" />
+
+ @*            <div class="mb-3">
 				<label for="learning_days" class="form-label">learning_days:</label>
 				<InputNumber id="learning_days" @bind-Value="Group.learning_days" class="form-control" />
 				<ValidationMessage For="() => Group.learning_days" class="text-danger" />
-			</div>
+			</div> *@
 			<div class="mb-3">
 				<label for="start_time" class="form-label">start_time:</label>
 				<InputDate Type="InputDateType.Time" id="start_time" @bind-Value="Group.start_time" class="form-control" />
@@ -70,12 +73,13 @@
 @code {
 	[SupplyParameterFromForm]
 	private Group Group { get; set; } = new();
-
+	public bool[] learning_days { get; set; }
 	// DbContext context = Academy2.Data.Academy2Context;
 	//  IQueryable<Direction> Directions { get; set; } = default!;
 
 	protected override void OnInitialized()
 	{
+
 		//  base.OnInitialized();
 		//   Directions = DbFactory.CreateDbContext().Directions;
 	}
@@ -84,6 +88,7 @@
 	private async Task AddGroup()
 	{
 		using var context = DbFactory.CreateDbContext();
+		Group.learning_days = context.Convert(learning_days);
 		context.Groups.Add(Group);
 		await context.SaveChangesAsync();
 		NavigationManager.NavigateTo("/groups");

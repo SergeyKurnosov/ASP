@@ -1,14 +1,42 @@
-﻿<h3>Weekdays</h3>
+﻿@rendermode InteractiveServer
+<h3>Weekdays</h3>
+
+@* <ul class="weekdays">
+
+ 	@for (int i = 0; i < 7; i++){
+		<li>
+			<input type="checkbox" @bind="@learning_days[i]" />@DAYNAMES[i]
+		</li>
+	} 
+
+</ul> *@
 
 <ul class="weekdays">
-
-@for(int i = 0; i < 7; i++)
-{
-	<li><InputCheckbox @bind-Value="learning_days[i]" />@DAYNAMES[i]</li>
-}
+	@for (int i = 0; i < 7; i++)
+	{
+	 <li><InputCheckbox @bind-Value="learning_days[i]" />@DAYNAMES[i]</li> 
+	}
+	
 </ul>
 
 @code {
+
+	[Parameter]
+	public int Value { get; set; }
+	[Parameter]
+	public EventCallback<int> ValueChanged { get; set; }
+
 	readonly string[] DAYNAMES = { "Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс" };
-	bool[] learning_days = new bool[7];
+	public bool[] learning_days { get; set; }
+
+
+	// private int Convert()
+	// {
+	// 	for (int i = 0; i < learning_days.Length; ++i)
+	// 	{
+	// 		if (learning_days[i])
+	// 			Value |= 1 << i;
+	// 	}
+	// 	return Value;
+	// }
 }

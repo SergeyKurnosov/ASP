@@ -22,7 +22,12 @@
             <dt class="col-sm-2">direction</dt>
             <dd class="col-sm-10">@group.direction</dd>
             <dt class="col-sm-2">learning_days</dt>
-            <dd class="col-sm-10">@group.learning_days</dd>
+            <dd class="col-sm-10">
+                @using (Academy2.Data.Academy2Context context = DbFactory.CreateDbContext())
+                {
+					<p>@context.DecimalToBinary(@group.learning_days)</p>
+                }
+            </dd>
             <dt class="col-sm-2">start_time</dt>
             <dd class="col-sm-10">@group.start_time</dd>
         </dl>

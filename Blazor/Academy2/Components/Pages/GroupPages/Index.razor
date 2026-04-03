@@ -18,7 +18,7 @@
     <PropertyColumn Property="group => group.group_id" />
     <PropertyColumn Property="group => group.group_name" />
     <PropertyColumn Property="group => group.direction" />
-    <PropertyColumn Property="group => group.learning_days" />
+    <PropertyColumn Property="group => context.DecimalToBinary(group.learning_days)" Title="learning_days" />
     <PropertyColumn Property="group => group.start_time" />
 
     <TemplateColumn Context="group">
@@ -37,4 +37,5 @@
     }
 
     public async ValueTask DisposeAsync() => await context.DisposeAsync();
+
 }
