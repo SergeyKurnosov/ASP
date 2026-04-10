@@ -1,0 +1,9 @@
+﻿@rendermode InteractiveServer
+<h3>Photo</h3>
+
+<img src="@url" alt="Photo" />
+
+@code {
+	[Parameter]
+	public IBrowserFile url { get; set; }
+}

@@ -17,5 +17,6 @@ namespace Academy2.Data
         public DbSet<Academy2.Components.Model.Direction> Directions { get; set; } = default!;
         public DbSet<Academy2.Components.Model.Group> Groups { get; set; } = default!;
         public DbSet<Academy2.Components.Model.Student> Students { get; set; } = default!;
+        public DbSet<Academy2.Components.Model.Teacher> Teachers { get; set; } = default!;
     }
 }
