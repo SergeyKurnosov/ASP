@@ -9,5 +9,10 @@ namespace Academy2.Components.Model
 		public int teacher_id { get; set; }
 		public DateOnly work_since { get; set; } = default!;
 		public decimal rate { get; set; }
+
+		// Navigation Property
+
+		public ICollection<TeacherDisciplineRelation> DisciplinesRelations { get; set; } = default!;
+		//public ICollection<Discipline> Disciplines { get; set; } = default!;
 	}
 }
