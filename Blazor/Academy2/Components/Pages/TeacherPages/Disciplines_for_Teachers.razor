@@ -1,0 +1,43 @@
+﻿@rendermode InteractiveServer
+@using Microsoft.EntityFrameworkCore;
+@using Academy2.Components.Model;
+@inject IDbContextFactory<Academy2.Data.Academy2Context> DbFactory
+
+
+<h3>Disciplines_for_Teachers</h3>
+
+@foreach (Discipline discipline in Disciplines)
+{
+	<label for="@discipline.discipline_id">@discipline.discipline_name</label>
+	<input id="@discipline.discipline_id" type="checkbox" />
+	@* <input id="@discipline.discipline_id" type="checkbox"  @bind-value="@IsChecked" @bind-value:after="CheckboxChanged" /> *@
+}
+
+
+@code {
+
+	[Parameter]
+	public Teacher Teacher { get; set; }
+	public DbSet<Discipline> Disciplines { get; set; }
+	public List<bool> active_disciplines = new List<bool>();
+
+	// [Parameter]
+	// public Model.Teacher Teacher { get; set; }
+	//public DbSet<TeacherDisciplineRelation> teacherDisciplineRelations { get; set; }
+	// [Parameter]
+	// public DbSet<Model.TeacherDisciplineRelation> TeacherDisciplineRelation { get; set; }
+	// public IQueryable<Model.TeacherDisciplineRelation> teacherdisciplineRelation { get; set; }
+
+
+	protected override void OnInitialized()
+	{
+		var context = DbFactory.CreateDbContext();
+		Disciplines = context.Disciplines;
+
+		foreach(Discipline discipline in Disciplines)
+		{
+			
+		}
+
+	}
+}

@@ -84,14 +84,19 @@ else
                         @* <InputFile OnChange="LoadPhoto" /> *@
 
                     </div>
-                        <InputSelect @bind-Value="discipline">
+@*                         <InputSelect @bind-Value="discipline">
                         @foreach(Discipline d in Disciplines)
                         {
                             <option value="@d.discipline_id">
                                 @d.discipline_name
                             </option>
                         }
-                    </InputSelect> 
+                    </InputSelect>  *@
+                    @using(var context = DbFactory.CreateDbContext())
+                    {
+                    <Disciplines_for_Teachers />
+                        
+                    }
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </EditForm>
@@ -109,8 +114,8 @@ else
 
     [SupplyParameterFromForm]
     private Teacher? Teacher { get; set; }
-    DbSet<Discipline> Disciplines { get; set; }
-    DbSet<TeacherDisciplineRelation> TDR { get; set; }
+    DbSet<Discipline> Disciplines { get; set; } = default!;
+
 
     int discipline;
     // IBrowserFile url { get; set; }
@@ -126,8 +131,22 @@ else
     {
         using var context = DbFactory.CreateDbContext();
         Teacher ??= await context.Teachers.FirstOrDefaultAsync(m => m.teacher_id == teacher_id);
-        TDR = context.TeachersDisciplinesRelation;
-        Disciplines = context.Disciplines;
+
+        // TDR = context.TeachersDisciplinesRelation;
+        // Disciplines = context.Disciplines;
+
+        // TDR = context
+        // .TeachersDisciplinesRelation
+        // .Where(tdr => tdr.teacher == teacher_id);
+
+        // foreach (TeacherDisciplineRelation)
+
+        // for(int i = 0; i < TDR.Count(); i++)
+        // { // попробовать преобразовать в лист и использовать 
+        //     Disciplines.Append(
+        //         context.Disciplines.FirstOrDefaultAsync(d => d.discipline_id == TDR.)
+        //     )
+        // }
 
         if (Teacher is null)
         {
