@@ -8,4 +8,7 @@
 }
 .photo-container{
     width:40%;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
 }
