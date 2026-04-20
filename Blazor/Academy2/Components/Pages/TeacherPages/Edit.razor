@@ -79,7 +79,7 @@ else
 						@* @if(Teacher.photo != null) *@
 
 						<Photo Human="@Teacher" allow_change=true />
-						<AddDisciplines Teacher="Teacher"/>
+ 						<AddDisciplines Teacher="Teacher" @ref="addDisciplines"/>
 						@*<div class="mb-3">
 							<h5>Выберите дисциплину</h5>
 							<InputSelect @bind-Value="discipline" class="form-control">
@@ -126,6 +126,8 @@ else
 
 	[SupplyParameterFromForm]
 	private Teacher? Teacher { get; set; }
+
+	private AddDisciplines addDisciplines;
 	// ICollection<Discipline>? Disciplines { get; set; }
 	// ICollection<TeacherDisciplineRelation>? TDR { get; set; }
 	// List<TeacherDisciplineRelation> NewDisciplines = new List<TeacherDisciplineRelation>();
@@ -192,6 +194,7 @@ else
 
 		try
 		{
+			await addDisciplines.AddNewDisciplines();
 			await context.SaveChangesAsync();
 		}
 		catch (DbUpdateConcurrencyException)

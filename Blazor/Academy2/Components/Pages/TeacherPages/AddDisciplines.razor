@@ -1,11 +1,17 @@
-﻿@using Model
+﻿@* @using Model
 @using Microsoft.EntityFrameworkCore
 @inject IDbContextFactory<Academy2.Data.Academy2Context> DbFactory
+@rendermode InteractiveServer *@
+
+@using Microsoft.EntityFrameworkCore
+@using Academy2.Components.Model
+@inject IDbContextFactory<Academy2.Data.Academy2Context> DbFactory
+@inject NavigationManager NavigationManager
 @rendermode InteractiveServer
 
 
 <h3>AddDisciplines</h3>
-<form style="height:30vh;align-content:center" @onsubmit="Update">
+<form style="height:30vh;align-content:center">
 
 	<h5>Выберите дисциплину</h5>
 	<InputSelect @bind-Value="discipline" class="form-control">
@@ -68,18 +74,17 @@
 		discipline = -1;
 	}
 
-	async Task Update()
+	public async Task AddNewDisciplines()
 	{
-		using Data.Academy2Context context = DbFactory.CreateDbContext();
+		using var context = DbFactory.CreateDbContext();
 		List<TeacherDisciplineRelation> pairs = new List<TeacherDisciplineRelation>();
 		foreach (TeacherDisciplineRelation tdr in NewDisciplines)
-			pairs.Add(new TeacherDisciplineRelation { teacher = tdr.teacher, discipline = tdr.discipline });
 		{
-			//	tdr.Discipline = null;
-			//	tdr.Teacher = null;
+		pairs.Add(new TeacherDisciplineRelation { teacher = tdr.teacher, discipline = tdr.discipline });
 		}
-		await context.TeachersDisciplinesRelation.AddRangeAsync(pairs);
-		await context.SaveChangesAsync();
+
+	await	context.TeachersDisciplinesRelation.AddRangeAsync(pairs);
+	await	context.SaveChangesAsync();
 
 	}
 

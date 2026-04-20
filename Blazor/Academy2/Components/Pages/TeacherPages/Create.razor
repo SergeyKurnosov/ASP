@@ -69,9 +69,12 @@
                         <InputNumber id="rate" @bind-Value="Teacher.rate" class="form-control" />
                         <ValidationMessage For="() => Teacher.rate" class="text-danger" />
                     </div>
+
+
                 </div>
                 <div class="photo-container">
                     <Photo Human="@Teacher" allow_change=true />
+                    <AddDisciplines Teacher="Teacher" @ref="addDisciplines"/>
                 </div>
             </div>    
             <button type="submit" class="btn btn-primary">Create</button>
@@ -87,12 +90,17 @@
     [SupplyParameterFromForm]
     private Teacher Teacher { get; set; } = new();
 
+    private AddDisciplines addDisciplines;
+
     // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
     private async Task AddTeacher()
     {
         using var context = DbFactory.CreateDbContext();
         context.Teachers.Add(Teacher);
         await context.SaveChangesAsync();
-        NavigationManager.NavigateTo("/teachers");
+       await addDisciplines.AddNewDisciplines();
+      //  NavigationManager.NavigateTo("/teachers");
+        NavigationManager.NavigateTo($"teachers/details?teacher_id={Teacher.teacher_id}");
+
     }
 }
